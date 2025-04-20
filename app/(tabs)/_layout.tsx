@@ -66,7 +66,7 @@ const _layout = () => {
           title: "Search",
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.search} title="Search" />
+            <TabIcon focused={focused} icon={icons.goals} title="Search" />
           ),
         }}
       />
