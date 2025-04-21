@@ -38,8 +38,6 @@ Built with Expo, TypeScript, and Tailwind CSS, this app fetches movies and creat
 
 👉 **Popularity algorithm**: Track user searches to display the most popular movies
 
-(etc)
-
 and many more, including code architecture and reusability.
 
 ## <a name="quick-start">🤸 Quick Start</a>
