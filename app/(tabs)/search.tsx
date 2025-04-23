@@ -73,7 +73,7 @@ const Search = () => {
 
             <View className="my-5">
               <SearchBar
-                placeholder="Search for a movie"
+                placeholder="Search through 300+ movies online"
                 value={searchQuery}
                 onChangeText={handleSearch}
               />

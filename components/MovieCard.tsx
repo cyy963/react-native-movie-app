@@ -2,14 +2,16 @@ import { Link } from "expo-router";
 import { Text, Image, TouchableOpacity, View } from "react-native";
 
 import { icons } from "@/constants/icons";
+import { TMDB_GENRES } from "@/constants/genres";
 
-const MovieCard = ({
-  id,
-  poster_path,
-  title,
-  vote_average,
-  release_date,
-}: Movie) => {
+const MovieCard = (props: Movie) => {
+  const { id, poster_path, title, vote_average, release_date, genre_ids } = props;
+
+  // only show the first genre
+  const firstGenre = genre_ids.length > 0
+    ? TMDB_GENRES[genre_ids[0]] ?? "Unknown"
+    : "";
+
   return (
     <Link href={`/movies/${id}`} asChild>
       <TouchableOpacity className="w-[30%]">
@@ -27,19 +29,19 @@ const MovieCard = ({
           {title}
         </Text>
 
-        <View className="flex-row items-center justify-start gap-x-1">
+        <View className="flex-row items-center justify-start gap-x-1 mt-0.5">
           <Image source={icons.star} className="size-4" />
           <Text className="text-xs text-white font-bold uppercase">
             {vote_average.toFixed(1)}
           </Text>
         </View>
 
-        <View className="flex-row items-center justify-between">
-          <Text className="text-xs text-light-300 font-medium mt-1">
+        <View className="flex-row items-center justify-between mt-1">
+          <Text className="text-xs text-light-300 ">
             {release_date?.split("-")[0]}
           </Text>
           <Text className="text-xs font-medium text-light-300 uppercase">
-            Movie
+            {firstGenre}
           </Text>
         </View>
       </TouchableOpacity>
